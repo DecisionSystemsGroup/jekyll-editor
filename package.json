@@ -1,0 +1,29 @@
+{
+  "name": "jekyll-editor",
+  "version": "1.0.0",
+  "description": "A simple editor for the DSG jekyll based website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DecisionSystemsGroup/jekyll-editor.git"
+  },
+  "keywords": [
+    "jekyll",
+    "editor",
+    "markdown",
+    "dsg"
+  ],
+  "author": "Stavros Tsourlidakis <'s.tsourlidakis@hotmail.com'>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DecisionSystemsGroup/jekyll-editor/issues"
+  },
+  "homepage": "https://github.com/DecisionSystemsGroup/jekyll-editor#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}
