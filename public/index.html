@@ -1,17 +1,30 @@
 <!DOCTYPE html>
- 
+
 <html>
 <head>
 	<title>New article</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
 </head>
 <body>
 	<form method="POST" action="./article">
-		<input type="text" name="articleTitle" placeholder="Article Title"></input>
+		<input id="articleTitle" type="text" name="articleTitle" placeholder="Article Title"></input>
 		<br>
-		<textarea name="articleBody"></textarea>
+
+		<textarea id="demo1" name="articleBody"></textarea>
 		<br>
 		<input type="submit"></input>
 	</form>
+
+
+
 </body>
+
+ <script>
+var simplemde = new SimpleMDE();
+</script>
+
+
 </html>
