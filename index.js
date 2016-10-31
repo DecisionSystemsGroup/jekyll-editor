@@ -1,18 +1,28 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const exphbs = require('express-handlebars');
+
+const categories = [
+	{name: 'post'},
+	{name: 'project'},
+	{name: 'member'}
+];
+
+const hbs = exphbs.create({
+    defaultLayout: 'main',
+    partialsDir: ['views/partials/']
+});
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
-app.route('/article')
-	.get(function (req, res) {
-		res.sendFile('index.html', {root: './public'});
-	})
-	.post(function (req, res) {
-		res.send(req.body.articleTitle+', '+req.body.articleBody);
-	});	
+app.get('/', function(req, res){
+	res.render('main', {categories: categories});
+});
 
 var port = 3000;
 app.listen(port, function () {

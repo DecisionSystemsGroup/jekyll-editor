@@ -1,0 +1,12 @@
+<h2>Actions</h2>
+<ul>
+	{{#each categories}}
+	<li class="category">
+		{{this.name}}
+		<ul>
+			<li><a href="/{{this.name}}/new">New</a></li>
+			<li><a href="/{{this.name}}/edit">Edit</a></li>
+		</ul>
+	</li>
+	{{/each}}
+</ul>
