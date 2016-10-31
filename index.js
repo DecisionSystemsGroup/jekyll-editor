@@ -21,7 +21,18 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function(req, res){
-	res.render('main', {categories: categories});
+	res.render('index', {categories: categories});
+});
+
+app.get('/:resource/new', function(req, res){
+	var data = {
+		action: 'new',
+		resource: {
+			name: req.params.resource,
+			template: '# title bla bla\nmore content after the newline'
+		}
+	};
+	res.render('editor', data);
 });
 
 var port = process.env.PORT || 80;
