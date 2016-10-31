@@ -24,7 +24,7 @@ app.get('/', function(req, res){
 	res.render('main', {categories: categories});
 });
 
-var port = 80;
+var port = process.env.PORT || 80;
 app.listen(port, function () {
 	console.log('App listening on port '+port+'!');
 });
