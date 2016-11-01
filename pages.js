@@ -160,3 +160,7 @@ module.exports.all = pages;
 module.exports.find = function (name){
 	return pages[pages.map(function(e) { return e.name; }).indexOf(name)];
 };
+
+module.exports.exists = function (name){
+	return (typeof module.exports.find(name) !== 'undefined');
+};

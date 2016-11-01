@@ -19,11 +19,15 @@ app.get('/', function(req, res){
 });
 
 app.get('/:resource/new', function(req, res){
-	var data = {
-		action: 'new',
-		page: pages.find(req.params.resource)
-	};
-	res.render('editor', data);
+	if( !pages.exists(req.params.resource) ){
+		res.status(404).send('Not found');
+	} else {
+		var data = {
+			action: 'new',
+			page: pages.find(req.params.resource)
+		};
+		res.render('editor', data);
+	}
 });
 
 var port = process.env.PORT || 80;
