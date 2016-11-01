@@ -1,11 +1,24 @@
 <h2>{{action}} {{#if page.editorLabel}}{{page.editorLabel}}{{else}}{{page.name}}{{/if}}</h2>
 <form method="POST" action="/{{page.name}}/{{action}}">
 	<table>
-		{{#each page.elements}}
+		{{#if page.hasText}}
 		<tr class="element">
-			<td>{{this.name}}</td><td><input type="text" name="{{this.name}}" value="{{this.default}}"></td>
+			{{#each page.elements}}
+			<td>{{this.name}}</td>
+			{{/each}}
 		</tr>
-		{{/each}}
+		<tr class="value">
+			{{#each page.elements}}
+			<td><input type="text" name="{{this.name}}" value="{{this.default}}"></td>
+			{{/each}}
+		</tr>
+		{{else}}
+			{{#each page.elements}}
+			<tr>
+				<td>{{this.name}}</td><td><input type="text" name="{{this.name}}" value="{{this.default}}"></td>
+			</tr>
+			{{/each}}
+		{{/if}}
 	</table>
 	{{#if page.hasText}}
 	<textarea name="content" id="md-editor"></textarea>
