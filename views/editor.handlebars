@@ -1,6 +1,15 @@
-<h2>{{action}} {{resource.name}}</h2>
+<h2>{{action}} {{#if resource.editorLabel}}{{resource.editorLabel}}{{else}}{{resource.name}}{{/if}}</h2>
 <form method="POST" action="/{{resource.name}}/{{action}}">
-	<textarea name="content">{{resource.template}}</textarea>
+	<table>
+		{{#each resource.elements}}
+		<tr class="element">
+			<td>{{this.name}}</td><td><input type="text" name="{{this.name}}" value="{{this.default}}"></td>
+		</tr>
+		{{/each}}
+	</table>
+	{{#if resource.hasText}}
+	<textarea name="content"></textarea>
 	<br>
+	{{/if}}
 	<input type="submit">
 </form>

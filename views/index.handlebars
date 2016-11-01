@@ -2,7 +2,7 @@
 <ul>
 	{{#each categories}}
 	<li class="category">
-		{{this.name}}
+		{{#if this.editorLabel}}{{this.editorLabel}}{{else}}{{this.name}}{{/if}}
 		<ul>
 			<li><a href="/{{this.name}}/new">New</a></li>
 			<li><a href="/{{this.name}}/edit">Edit</a></li>
