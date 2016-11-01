@@ -1,13 +1,13 @@
-<h2>{{action}} {{#if resource.editorLabel}}{{resource.editorLabel}}{{else}}{{resource.name}}{{/if}}</h2>
-<form method="POST" action="/{{resource.name}}/{{action}}">
+<h2>{{action}} {{#if page.editorLabel}}{{page.editorLabel}}{{else}}{{page.name}}{{/if}}</h2>
+<form method="POST" action="/{{page.name}}/{{action}}">
 	<table>
-		{{#each resource.elements}}
+		{{#each page.elements}}
 		<tr class="element">
 			<td>{{this.name}}</td><td><input type="text" name="{{this.name}}" value="{{this.default}}"></td>
 		</tr>
 		{{/each}}
 	</table>
-	{{#if resource.hasText}}
+	{{#if page.hasText}}
 	<textarea name="content"></textarea>
 	<br>
 	{{/if}}

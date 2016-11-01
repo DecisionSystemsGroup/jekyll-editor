@@ -1,7 +1,7 @@
 <h2>Actions</h2>
 <ul>
-	{{#each categories}}
-	<li class="category">
+	{{#each pages}}
+	<li class="page">
 		{{#if this.editorLabel}}{{this.editorLabel}}{{else}}{{this.name}}{{/if}}
 		<ul>
 			<li><a href="/{{this.name}}/new">New</a></li>

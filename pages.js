@@ -1,4 +1,4 @@
-const categories = [
+const pages = [
 	{
 		name: 'post',
 		hasText: true,
@@ -155,8 +155,8 @@ const categories = [
 	}
 ];
 
-module.exports.all = categories;
+module.exports.all = pages;
 
 module.exports.find = function (name){
-	return categories[categories.map(function(e) { return e.name; }).indexOf(name)];
+	return pages[pages.map(function(e) { return e.name; }).indexOf(name)];
 };

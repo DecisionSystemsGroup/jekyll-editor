@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
-const categories = require('./categories.js');
+const pages = require('./pages.js');
 const hbs = exphbs.create({
     defaultLayout: 'main',
     partialsDir: ['views/partials/']
@@ -15,13 +15,13 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.get('/', function(req, res){
-	res.render('index', {categories: categories.all});
+	res.render('index', {pages: pages.all});
 });
 
 app.get('/:resource/new', function(req, res){
 	var data = {
 		action: 'new',
-		resource: categories.find(req.params.resource)
+		page: pages.find(req.params.resource)
 	};
 	res.render('editor', data);
 });
