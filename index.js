@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const pages = require('./pages.js');
+const utils = require('./utils.js');
 const hbs = exphbs.create({
     defaultLayout: 'main',
     partialsDir: ['views/partials/']
@@ -18,17 +19,18 @@ app.get('/', function(req, res){
 	res.render('index', {pages: pages.all});
 });
 
-app.get('/:resource/new', function(req, res){
-	if( !pages.exists(req.params.resource) ){
-		res.status(404).send('Not found');
-	} else {
+app.route('/:resource/new')
+	.get(utils.resourceExists, function(req, res){
 		var data = {
 			action: 'new',
 			page: pages.find(req.params.resource)
 		};
 		res.render('editor', data);
-	}
-});
+	})
+	.post(utils.resourceExists, function(req, res){
+		// handle resource creation
+		res.send("post->"+req.params.resource);
+	});
 
 var port = process.env.PORT || 80;
 app.listen(port, function () {
