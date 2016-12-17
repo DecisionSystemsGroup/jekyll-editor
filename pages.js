@@ -17,7 +17,7 @@ const pages = [
 			},
 			{
 				name: 'tags',
-				default: '[dsg, ]'
+				default: '[dsg]'
 			},
 			{
 				name: 'language',

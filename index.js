@@ -29,7 +29,8 @@ app.route('/:resource/new')
 	})
 	.post(utils.resourceExists, function(req, res){
 		// handle resource creation
-		res.send("post->"+req.params.resource);
+		var mdString = utils.createMarkdownString(req.params.resource, req.body);
+		res.send(mdString);
 	});
 
 var port = process.env.PORT || 80;
